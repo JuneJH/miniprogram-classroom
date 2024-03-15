@@ -12,6 +12,6 @@ export default [
   {
     icon: 'person',
     text: '我的',
-    url: 'pages/user/user',
+    url: 'pages/usercenter/index',
   },
 ];

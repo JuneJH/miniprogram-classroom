@@ -1,0 +1,25 @@
+<!--pages/videoDetail/videoDetail.wxml-->
+<view>
+  <view class="video-container">
+    <video poster="{{videoInfo.coverUrl}}" title="{{videoInfo.title}}" class="video-container" src="{{baseUrl+fileUrl}}"></video>
+  </view>
+  <view class="video-title">
+    <text>{{videoInfo.title}}</text>
+    <view class="tags-container" wx:if="{{videoInfo && videoInfo.tags}}">
+      <t-tag wx:for="{{ videoInfo.tags }}" wx:key="index" size="small" wx:for-item="tag" class="margin-16" variant="light" icon="discount" shape="mark"> {{tag}} </t-tag>
+    </view>
+  </view>
+  <view class="author-info">
+    <t-avatar size="small" image="https://tdesign.gtimg.com/mobile/demos/avatar1.png"></t-avatar>
+    <view class="info">
+      <text>{{videoInfo.author || 'Mia'}}</text>
+      <text>{{videoInfo.author || '高级教师'}}</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="share">精品推荐</view>
+  <view class="group">
+    <t-skeleton rowCol="{{rowCol}}" loading></t-skeleton>
+    <t-skeleton rowCol="{{rowCol}}" loading></t-skeleton>
+  </view>
+</view>

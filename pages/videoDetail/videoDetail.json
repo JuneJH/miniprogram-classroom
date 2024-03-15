@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "视频播放",
+  "usingComponents": {
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton"
+  }
+}

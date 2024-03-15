@@ -2,7 +2,10 @@
   "pages": [
     "pages/home/home",
     "pages/classify/classify",
-    "pages/user/user"
+    "pages/usercenter/index",
+    "pages/videoDetail/videoDetail",
+    "pages/usercenter/person-info/index",
+    "pages/usercenter/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +30,7 @@
         "text": "分类"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/usercenter/index",
         "text": "我的"
       }
     ]

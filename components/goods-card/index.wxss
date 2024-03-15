@@ -24,6 +24,7 @@
   position: relative;
   width: 340rpx;
   height: 340rpx;
+  background-color: #fff;
 }
 
 .goods-card__thumb:empty {
@@ -35,16 +36,17 @@
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 16rpx 16rpx 0 0;
   overflow: hidden;
 }
 
 .goods-card__body {
+  box-sizing: border-box;
   display: flex;
   flex: 1 1 auto;
+  width: 100%;
   background: #fff;
   border-radius: 0 0 16rpx 16rpx;
-  padding: 16rpx 24rpx 18rpx;
+  padding: 16rpx 10rpx 18rpx;
   flex-direction: column;
 }
 
@@ -101,31 +103,13 @@
   line-height: 32rpx;
   margin: 8rpx 0 0 0;
 }
-
-.goods-card__origin-price {
-  white-space: nowrap;
-  font-weight: 700;
-  order: 2;
-  color: #bbbbbb;
-  font-size: 24rpx;
-  margin: 0 0 0 8rpx;
-}
-
-.goods-card__add-cart {
-  order: 3;
-  margin: auto 0 0 auto;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.spec-for-price {
-  font-size: 36rpx;
-  white-space: nowrap;
-  font-weight: 700;
-  order: 1;
-  color: #fa4126;
-  margin: 0;
+.goods-card__author{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #aaa;
+  font-size: 20rpx;
 }
 
 .spec-for-symbol {

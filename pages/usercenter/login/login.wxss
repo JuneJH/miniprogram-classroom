@@ -1,0 +1,54 @@
+/* pages/usercenter/login/login.wxss */
+.container{
+  padding: 60rpx ;
+  position: fixed;
+  top: 40%;
+  transform: translateY(-50%);
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.h1{
+  font-size: 36rpx;
+  margin: 15rpx 0rpx 5rpx;
+}
+.h2{
+  font-size: 40rpx;
+  color: orange;
+}
+.h3{
+  font-size: 20rpx;
+  color: orange;
+}
+.suffix {
+  display: flex;
+  align-items: center;
+}
+.suffix--line {
+  width: 1px;
+  height: 24px;
+  background-color: #f6f6f6;
+  margin-right: 16px;
+}
+
+.image {
+  width: 72px;
+  height: 36px;
+  display: block;
+  margin-top: -6px;
+  margin-bottom: -6px;
+}
+
+.tips {
+  text-align: right !important;
+}
+
+.verify {
+  color: rgba(0, 82, 217, 1);
+  font-size: 32rpx;
+}
+.login-btn{
+  margin-top: 100rpx;
+}

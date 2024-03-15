@@ -1,5 +1,5 @@
 import Toast from 'tdesign-miniprogram/toast/index';
-import request from "../../services/request";
+import request,{baseUrl} from "../../services/request";
 
 Page({
   data: {
@@ -91,9 +91,9 @@ Page({
     }
 
     try {
-      const data = await request("/vlog","get",{pageIndex,pageSize});
+      const data = await request("/video","get",{pageIndex,pageSize});
       if(data.code == "10200"){
-        const nextList = data.data;
+        const nextList = data.data.map((item)=>({...item,coverUrl:`${baseUrl}${item.coverUrl}`}));
         this.setData({
           goodsList: fresh ? nextList : this.data.goodsList.concat(nextList),
           goodsListLoadStatus: 0,
@@ -108,9 +108,9 @@ Page({
 
   goodListClickHandle(e) {
     const { index } = e.detail;
-    const { spuId } = this.data.goodsList[index];
+    const { id } = this.data.goodsList[index];
     wx.navigateTo({
-      url: `/pages/goods/details/index?spuId=${spuId}`,
+      url: `/pages/videoDetail/videoDetail?spuId=${id}`,
     });
   },
 

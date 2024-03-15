@@ -1,0 +1,21 @@
+<!--pages/usercenter/login/login.wxml-->
+<view class="container">
+  <view class="title">
+    <text class="h1">登录-<text class="h2">小橘子英语</text></text>
+    <text class="h3">学习是一种状态</text>
+  </view>
+  <t-input label="用户名" model:value="{{username}}" clearable />
+  <t-input label="密  码" type="password" model:value="{{password}}" clearable />
+
+  <t-input placeholder="输入验证码" model:value="{{code}}" label="验证码">
+    <view slot="suffix" class="suffix">
+      <view class="suffix--line"></view>
+      <image class="image" src="{{codeUrl}}" bind:tap="getCaptchaHander" mode="heightFix" aria-role="img" aria-label="验证码" />
+    </view>
+  </t-input>
+
+  <view class="button-example login-btn">
+    <t-button loading="{{loading}}" theme="primary" bind:tap="loginHander" block>登录</t-button>
+  </view>
+  <t-message id="t-message" />
+</view>
