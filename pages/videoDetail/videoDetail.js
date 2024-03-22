@@ -11,7 +11,13 @@ Page({
     id:"",
     baseUrl,
     rowCol: [{ size: '327rpx', borderRadius: '24rpx' }, 1, { width: '61%' }],
-    videoInfo:{}
+    videoInfo:{},
+    list:[],
+    author:{
+      name:"",
+      avatar:"",
+      desc:"",
+    }
   },
 
   /**
@@ -20,7 +26,6 @@ Page({
   onLoad(options) {
     this.id = options.spuId;
     this.getVideoInfo(this.id);
-
   },
 
   /**
@@ -79,12 +84,36 @@ Page({
     const data = await request("/video/"+id);
     if(data.code === "10200"){
       const {fileUrl,tags,...info } = data.data || {};
+      const authorRes = await request("/author/"+info.authorId);
+      const author = authorRes.data || {};
+      this.getDataByClassify({id:info.courseId})
       this.setData({
         fileUrl,
+        author:{...author,avatar:`${baseUrl}${author.avatar}`},
         videoInfo:{...info,tags:tags ? tags.split(","):[]},
         pageLoading: false,
       });
     }
 
+  },
+  onSelectVideo(e){
+    const { dataset } = e.currentTarget;
+    const id = dataset.id;
+    this.getVideoInfo(id);
+    
+  },
+  async getDataByClassify(condition) {
+    const { id, ...cond } = condition;
+    try {
+      const data = await request("/video/course/use/" + id, "get", { page: 1, size: 100, ...cond });
+      if (data.code == "10200") {
+        const target = data.data.data.map((item) => ({ ...item, coverUrl: `${baseUrl}${item.coverUrl}` }));
+        this.setData({
+          list: target
+        });
+      }
+    } catch (err) {
+
+    }
   },
 })

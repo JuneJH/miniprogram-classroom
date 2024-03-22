@@ -18,7 +18,12 @@
   display: flex;
   flex-direction: column;
 }
-
+.author-name{
+  color: #333;
+  font-weight: 600;
+  font-size: 23rpx;
+  margin-bottom: 5rpx;
+}
 .tags-container {
   margin-top: 10rpx;
 }
@@ -59,7 +64,20 @@
   display: flex;
   justify-content: space-between;
   margin-top: 32rpx;
-  padding: 0rpx 20rpx;
   overflow-y: auto;
-  height: 350rpx;
+  height: calc(100vh - 900rpx);
+}
+.playing{
+  height: 100%;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  color: orange;
+}
+page .t-cell__title-text{
+  font-size: 25rpx;
+  font-weight: 700;
+}
+page .t-cell__description-text{
+  font-size: 23rpx;
 }

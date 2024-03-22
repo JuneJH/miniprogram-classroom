@@ -100,8 +100,23 @@ page {
 }
 
 .home-page-tabs {
-  --td-tab-nav-bg-color: transparent;
-  --td-tab-border-color: transparent;
-  --td-tab-item-color: #666;
-  --td-tab-track-color: red;
+  font-size: 30rpx;
+  font-weight: 700;
+  text-align: center;
+  padding: 30rpx 0rpx;
+  letter-spacing: 6rpx;
+  position: relative;
 }
+.home-page-tabs::after{
+  content: "";
+  position: absolute;
+  width: 50rpx;
+  height: 10rpx;
+  background-color: orange;
+  left: 50%;
+  bottom: 15rpx;
+  border-radius: 10rpx;
+  margin-left: -7rpx;
+  transform: translateX(-50%);
+}
+

@@ -1,25 +1,36 @@
 <!--pages/videoDetail/videoDetail.wxml-->
-<view>
-  <view class="video-container">
-    <video poster="{{videoInfo.coverUrl}}" title="{{videoInfo.title}}" class="video-container" src="{{baseUrl+fileUrl}}"></video>
-  </view>
-  <view class="video-title">
-    <text>{{videoInfo.title}}</text>
-    <view class="tags-container" wx:if="{{videoInfo && videoInfo.tags}}">
-      <t-tag wx:for="{{ videoInfo.tags }}" wx:key="index" size="small" wx:for-item="tag" class="margin-16" variant="light" icon="discount" shape="mark"> {{tag}} </t-tag>
+  <view>
+    <view>
+      <view class="video-container">
+        <video poster="{{videoInfo.coverUrl}}" title="{{videoInfo.title}}" class="video-container" src="{{baseUrl+fileUrl}}"></video>
+      </view>
+      <view class="video-title">
+        <text>{{videoInfo.title}}</text>
+        <view class="tags-container" wx:if="{{videoInfo && videoInfo.tags}}">
+          <t-tag wx:for="{{ videoInfo.tags }}" wx:key="index" size="small" wx:for-item="tag" class="margin-16" variant="light" icon="discount" shape="mark"> {{tag}} </t-tag>
+        </view>
+      </view>
+      <view class="author-info">
+        <t-avatar size="small" image="{{author.avatar}}"></t-avatar>
+        <view class="info">
+          <text class="author-name">{{author.name}}</text>
+          <text>{{author.desc}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="share">课程系列</view>
+    </view>
+    <view class="group">
+      <scroll-view scroll-y="true" style="height: 100%;">
+        <t-cell-group>
+          <block wx:for="{{list}}" wx:key="index" wx:for-item="item">
+            <view bind:tap="onSelectVideo" data-id="{{item.id}}">
+              <t-cell title="{{item.title}}" description="{{item.tags}}" align="center" image="{{item.coverUrl}}" hover>
+                <view slot="note" class="playing" wx:if="{{item.fileUrl === fileUrl}}">正在播放</view>
+              </t-cell>
+            </view>
+          </block>
+        </t-cell-group>
+      </scroll-view>
     </view>
   </view>
-  <view class="author-info">
-    <t-avatar size="small" image="https://tdesign.gtimg.com/mobile/demos/avatar1.png"></t-avatar>
-    <view class="info">
-      <text>{{videoInfo.author || 'Mia'}}</text>
-      <text>{{videoInfo.author || '高级教师'}}</text>
-    </view>
-  </view>
-  <view class="line"></view>
-  <view class="share">精品推荐</view>
-  <view class="group">
-    <t-skeleton rowCol="{{rowCol}}" loading></t-skeleton>
-    <t-skeleton rowCol="{{rowCol}}" loading></t-skeleton>
-  </view>
-</view>

@@ -1,17 +1,19 @@
 <view class="side-bar-wrapper">
   <t-side-bar value="{{sideBarIndex}}" bind:change="onSideBarChange">
-    <t-side-bar-item wx:for="{{categories}}" wx:key="index" value="{{item.value || index}}" label="{{item.label}}" disabled="{{item.disabled}}" badge-props="{{item.badgeProps}}" />
+    <t-side-bar-item wx:for="{{categories}}" wx:key="index" value="{{item.id || index}}" label="{{item.title}}" disabled="{{item.disabled}}" badge-props="{{item.badgeProps }}" />
   </t-side-bar>
   <view class="content" style="transform: translateY(-{{sideBarIndex * 100}}%)">
     <scroll-view wx:for="{{categories}}" wx:key="index" class="section" scroll-y scroll-top="{{scrollTop}}" scroll-with-animation show-scrollbar="{{false}}">
-      <view class="title">{{item.title || item.label}}</view>
-      <!-- <t-cell-group>
-        <block wx:for="{{item.items}}" wx:key="index" wx:for-item="cargo">
-          <t-cell title="{{cargo.label}}{{index}}">
-            <t-image shape="round" src="{{cargo.image}}" slot="image" lazy t-class="image" />
+      <view class="title">{{subTitle}}</view>
+      <t-cell-group>
+        <block wx:for="{{list}}" wx:key="index" wx:for-item="item">
+          <view bind:tap="goDetail" data-id="{{item.id}}">
+            <t-cell title="{{item.title}}" >
+            <t-image shape="round"  src="{{item.coverUrl}}" slot="image" lazy t-class="image" />
           </t-cell>
+          </view>
         </block>
-      </t-cell-group> -->
+      </t-cell-group>
     </scroll-view>
   </view>
 </view>

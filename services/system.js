@@ -6,5 +6,5 @@ export async function getCaptcha(data){
 }
 
 export async function login(data){
-  return await commonRequest("/auth/login","POST",data)
+  return await commonRequest("/login","POST",data)
 }
